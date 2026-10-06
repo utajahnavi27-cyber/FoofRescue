@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FoodRescue - Food Donation System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            🍱 FoodRescue
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#donate">Donate Food</a>
+            <a href="#available">Available Food</a>
+           <a href="#volunteer">Available Food</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Don't Waste Food,
+                <span>Share It.</span>
+            </h1>
+
+            <p>
+                Connect surplus food from restaurants, marriage functions
+                and events with volunteers who can help distribute it
+                to people in need.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#donate" class="primary-btn">
+                    Donate Food
+                </a>
+
+                <a href="#available" class="secondary-btn">
+                    Find Food
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Dashboard -->
+    <section class="dashboard">
+
+        <div class="stat-card">
+            <div class="stat-icon">🍱</div>
+            <h3>Total Donations</h3>
+            <p id="totalDonations">0</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🍽️</div>
+            <h3>Meals Rescued</h3>
+            <p id="totalMeals">0</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🤝</div>
+            <h3>Food Collected</h3>
+            <p id="collectedFood">0</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">♻️</div>
+            <h3>Food Saved</h3>
+            <p id="foodSaved">0 kg</p>
+        </div>
+
+    </section>
+
+
+    <!-- Donate Food -->
+    <section id="donate" class="section">
+
+        <div class="section-title">
+            <h2>Donate Surplus Food</h2>
+
+            <p>
+                Have extra food from a restaurant, event or function?
+                Share the details here.
+            </p>
+        </div>
+
+
+        <div class="form-card">
+
+            <form id="donationForm">
+
+                <div class="form-group">
+                    <label for="providerName">
+                        Provider / Organization Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="providerName"
+                        placeholder="Enter name"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="foodName">
+                        Food Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="foodName"
+                        placeholder="Example: Rice and Curry"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="quantity">
+                            Quantity (kg)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="quantity"
+                            placeholder="Example: 10"
+                            min="1"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="servings">
+                            Estimated Servings
+                        </label>
+
+                        <input
+                            type="number"
+                            id="servings"
+                            placeholder="Example: 50"
+                            min="1"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="foodType">
+                            Food Type
+                        </label>
+
+                        <select id="foodType" required>
+
+                            <option value="">
+                                Select Food Type
+                            </option>
+
+                            <option value="Vegetarian">
+                                Vegetarian
+                            </option>
+
+                            <option value="Non-Vegetarian">
+                                Non-Vegetarian
+                            </option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="availableUntil">
+                            Available Until
+                        </label>
+
+                        <input
+                            type="time"
+                            id="availableUntil"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="location">
+                        Pickup Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Enter pickup location"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="contact">
+                        Contact Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="contact"
+                        placeholder="Enter contact number"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="preparedTime">
+                        Food Prepared At
+                    </label>
+
+                    <input
+                        type="datetime-local"
+                        id="preparedTime"
+                        required
+                    >
+                </div>
+
+
+                <button type="submit" class="submit-btn">
+                    🍱 Post Food Donation
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- Available Food -->
+    <section id="available" class="section">
+
+        <div class="section-title">
+
+            <h2>Available Food Donations</h2>
+
+            <p>
+                Find surplus food available for collection.
+            </p>
+
+        </div>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Search food or location..."
+            >
+
+        </div>
+
+
+        <div id="foodList" class="food-list">
+
+            <div class="empty-message">
+                No food donations available yet.
+            </div>
+
+        </div>
+
+    </section>
+    <!-- Volunteer / NGO Section -->
+<section id="volunteer" class="section">
+
+    <div class="section-title">
+        <h2>🤝 Volunteer / NGO Registration</h2>
+
+        <p>
+            Register as a volunteer or organization to help
+            collect and distribute surplus food.
+        </p>
+    </div>
+
+    <div class="form-card">
+
+        <form id="volunteerForm">
+
+            <div class="form-group">
+                <label for="volunteerName">
+                    Volunteer / Organization Name
+                </label>
+
+                <input
+                    type="text"
+                    id="volunteerName"
+                    placeholder="Enter your name or organization"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="volunteerPhone">
+                    Contact Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="volunteerPhone"
+                    placeholder="Enter contact number"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="volunteerLocation">
+                    Service Location
+                </label>
+
+                <input
+                    type="text"
+                    id="volunteerLocation"
+                    placeholder="Enter your area"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="volunteerType">
+                    Volunteer Type
+                </label>
+
+                <select id="volunteerType" required>
+
+                    <option value="">
+                        Select Type
+                    </option>
+
+                    <option value="Individual Volunteer">
+                        Individual Volunteer
+                    </option>
+
+                    <option value="NGO">
+                        NGO
+                    </option>
+
+                    <option value="Community Organization">
+                        Community Organization
+                    </option>
+
+                </select>
+            </div>
+
+            <button
+                type="submit"
+                class="submit-btn"
+            >
+                🤝 Register as Volunteer
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+    <!-- About -->
+    <section id="about" class="about-section">
+
+        <h2>About FoodRescue</h2>
+
+        <p>
+            FoodRescue is a food donation platform designed to reduce
+            the wastage of edible food from restaurants, marriage
+            functions, hotels and events.
+        </p>
+
+        <p>
+            Food providers can post surplus food, while volunteers
+            or organizations can arrange collection and distribution
+            to people in need.
+        </p>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 FoodRescue | Reduce Food Waste ❤️
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
